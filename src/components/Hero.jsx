@@ -170,26 +170,26 @@ export default function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 + i * 0.1 }}
                   className="flex"
-                  style={{ paddingLeft: (line.indent || 0) * 24 }}
                 >
-                  <span className="text-dark-500 w-6 text-right mr-4 select-none">
+                  <span className="text-dark-500 w-6 text-right mr-4 shrink-0 select-none">
                     {i + 1}
                   </span>
-                  {line.highlight ? (
-                    <>
-                      <span className="text-violet-400">{line.text} </span>
-                      <span className="text-emerald-400">{line.highlight}</span>
-                      <span className="text-dark-400">{line.suffix}</span>
-                    </>
-                  ) : line.value ? (
-                    <>
-                      <span className="text-accent-300">{line.text}</span>
-                      <span className="text-dark-400"> </span>
-                      <span className="text-amber-400">{line.value}</span>
-                    </>
-                  ) : (
-                    <span className="text-dark-400">{line.text}</span>
-                  )}
+                  <div className="flex" style={{ paddingLeft: (line.indent || 0) * 24 }}>
+                    {line.highlight ? (
+                      <>
+                        <span className="text-violet-400">{line.text}&nbsp;</span>
+                        <span className="text-emerald-400">{line.highlight}&nbsp;</span>
+                        <span className="text-dark-400">{line.suffix.trim()}</span>
+                      </>
+                    ) : line.value ? (
+                      <>
+                        <span className="text-accent-300">{line.text}&nbsp;</span>
+                        <span className="text-amber-400">{line.value}</span>
+                      </>
+                    ) : (
+                      <span className="text-dark-400">{line.text}</span>
+                    )}
+                  </div>
                 </motion.div>
               ))}
               <motion.div

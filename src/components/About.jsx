@@ -45,7 +45,7 @@ export default function About() {
           <AnimatedSection delay={0.1}>
             <div className="space-y-8 text-dark-300 leading-relaxed text-lg sm:text-xl">
               <p>
-                I'm a 2nd-year B.Tech Computer Science student at{' '}
+                I'm a 3rd-year B.Tech Computer Science student at{' '}
                 <span className="text-white font-medium">Vivekananda Global University</span>,
                 deeply invested in backend development and systems engineering.
               </p>
@@ -68,7 +68,7 @@ export default function About() {
             <div className="grid grid-cols-3 gap-4 mt-10">
               {[
                 { val: '6+', label: 'Projects Built' },
-                { val: '4th', label: 'Semester' },
+                { val: '6th', label: 'Semester' },
                 { val: '∞', label: 'Curiosity' },
               ].map((s, i) => (
                 <div

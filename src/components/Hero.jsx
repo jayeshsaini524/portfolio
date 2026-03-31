@@ -134,7 +134,7 @@ export default function Hero() {
               <Mail size={20} />
             </a>
             <div className="h-4 w-px bg-dark-600 mx-1" />
-            <span className="text-xs text-dark-500 font-mono">B.Tech CSE • 3rd Year</span>
+            <span className="text-xs text-dark-500 font-mono">B.Tech CSE • 3rd Year (6th Sem)</span>
           </motion.div>
         </div>
 

@@ -19,19 +19,19 @@ export default function Hero() {
       {/* Ambient Glow Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
-           animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
-           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-           className="absolute -top-1/4 -left-1/4 w-[800px] h-[800px]"
-           style={{ willChange: "transform" }}
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          className="absolute -top-1/4 -left-1/4 w-[800px] h-[800px]"
+          style={{ willChange: "transform" }}
         >
           <div className="w-full h-full rounded-full bg-accent-500/[0.08] blur-[150px] transform-gpu" />
         </motion.div>
-        
+
         <motion.div
-           animate={{ scale: [1, 1.1, 1], x: [0, 50, 0] }}
-           transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-           className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px]"
-           style={{ willChange: "transform" }}
+          animate={{ scale: [1, 1.1, 1], x: [0, 50, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px]"
+          style={{ willChange: "transform" }}
         >
           <div className="w-full h-full rounded-full bg-violet-500/[0.08] blur-[120px] transform-gpu" />
         </motion.div>
@@ -149,61 +149,61 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50" />
             <div className="relative z-10">
               {/* Terminal Header */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-rose-400/80" />
-                <div className="w-3 h-3 rounded-full bg-amber-400/80" />
-                <div className="w-3 h-3 rounded-full bg-emerald-400/80" />
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-rose-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-amber-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-emerald-400/80" />
+                </div>
+                <div className="flex items-center gap-1.5 ml-3 text-dark-500 text-xs font-mono">
+                  <Terminal size={12} />
+                  developer.config
+                </div>
               </div>
-              <div className="flex items-center gap-1.5 ml-3 text-dark-500 text-xs font-mono">
-                <Terminal size={12} />
-                developer.config
-              </div>
-            </div>
 
-            {/* Code Content */}
-            <div className="p-6 font-mono text-sm leading-relaxed">
-              {codeLines.map((line, i) => (
+              {/* Code Content */}
+              <div className="p-6 font-mono text-sm leading-relaxed">
+                {codeLines.map((line, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 + i * 0.1 }}
+                    className="flex"
+                  >
+                    <span className="text-dark-500 w-6 text-right mr-4 shrink-0 select-none">
+                      {i + 1}
+                    </span>
+                    <div className="flex" style={{ paddingLeft: (line.indent || 0) * 24 }}>
+                      {line.highlight ? (
+                        <>
+                          <span className="text-violet-400">{line.text}&nbsp;</span>
+                          <span className="text-emerald-400">{line.highlight}&nbsp;</span>
+                          <span className="text-dark-400">{line.suffix.trim()}</span>
+                        </>
+                      ) : line.value ? (
+                        <>
+                          <span className="text-accent-300">{line.text}&nbsp;</span>
+                          <span className="text-amber-400">{line.value}</span>
+                        </>
+                      ) : (
+                        <span className="text-dark-400">{line.text}</span>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
                 <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 + i * 0.1 }}
-                  className="flex"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2 }}
+                  className="flex items-center mt-2"
                 >
-                  <span className="text-dark-500 w-6 text-right mr-4 shrink-0 select-none">
-                    {i + 1}
+                  <span className="text-dark-500 w-6 text-right mr-4 select-none">
+                    {codeLines.length + 1}
                   </span>
-                  <div className="flex" style={{ paddingLeft: (line.indent || 0) * 24 }}>
-                    {line.highlight ? (
-                      <>
-                        <span className="text-violet-400">{line.text}&nbsp;</span>
-                        <span className="text-emerald-400">{line.highlight}&nbsp;</span>
-                        <span className="text-dark-400">{line.suffix.trim()}</span>
-                      </>
-                    ) : line.value ? (
-                      <>
-                        <span className="text-accent-300">{line.text}&nbsp;</span>
-                        <span className="text-amber-400">{line.value}</span>
-                      </>
-                    ) : (
-                      <span className="text-dark-400">{line.text}</span>
-                    )}
-                  </div>
+                  <span className="w-2 h-5 bg-accent-400 animate-pulse-glow" />
                 </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
-                className="flex items-center mt-2"
-              >
-                <span className="text-dark-500 w-6 text-right mr-4 select-none">
-                  {codeLines.length + 1}
-                </span>
-                <span className="w-2 h-5 bg-accent-400 animate-pulse-glow" />
-              </motion.div>
-            </div>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -228,3 +228,4 @@ export default function Hero() {
     </section>
   );
 }
+

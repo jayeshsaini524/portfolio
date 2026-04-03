@@ -1,31 +1,31 @@
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
-import { Trophy, Award, Lightbulb } from 'lucide-react';
+import { Trophy, Award, Lightbulb, Palette, Sparkles } from 'lucide-react';
 
 const achievements = [
   {
-    icon: Trophy,
-    title: 'CODE RED Triathlon 4.0',
-    subtitle: 'Hackathon Participant',
+    icon: Palette,
+    title: 'Car Infotainment UI',
+    subtitle: 'CODE RED Triathlon 3.0 | UI/UX Design',
     description:
-      'Built solutions under tight deadlines, collaborating with cross-functional teams in a high-intensity hackathon.',
-    color: '#fbbf24',
-  },
-  {
-    icon: Award,
-    title: 'CODE RED Triathlon 3.0',
-    subtitle: 'Designathon Participant',
-    description:
-      'Designed user-centered interfaces in a competitive design sprint, focusing on UX clarity.',
-    color: '#818cf8',
+      'Designed a high-fidelity automotive interface in a 24-hour sprint, focusing on cognitive load reduction and night-mode accessibility.',
+    color: '#fb7185',
   },
   {
     icon: Lightbulb,
     title: 'Food Waste Reduction',
-    subtitle: 'Impact-Driven Solution',
+    subtitle: 'CODE RED Triathlon 4.0 | Social Impact',
     description:
-      'Built a technology-driven solution to address food waste — combining real-world impact with engineering.',
+      'Architected a community-driven solution to minimize food waste by connecting surplus donors with local shelters in real-time.',
     color: '#34d399',
+  },
+  {
+    icon: Sparkles,
+    title: 'Innovation & Impact',
+    subtitle: 'Hackathon Mindset',
+    description:
+      'Consistently applying rapid prototyping and human-centric design to solve real-world problems beyond standard engineering.',
+    color: '#818cf8',
   },
 ];
 

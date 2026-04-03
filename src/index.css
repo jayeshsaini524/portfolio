@@ -204,9 +204,9 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 0.875rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 9999px;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 500;
   background: rgba(99, 102, 241, 0.1);
   color: var(--color-accent-300);

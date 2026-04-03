@@ -19,7 +19,7 @@ const projects = [
     accentColor: '#818cf8',
     featured: true,
   },
-  {
+    {
     title: 'Premium PDF Editor',
     subtitle: 'AI-Powered Document Suite',
     description:
@@ -34,42 +34,6 @@ const projects = [
     gradient: 'from-emerald-500/20 to-cyan-500/20',
     accentColor: '#34d399',
     featured: true,
-  },
-  {
-    title: 'Journal App',
-    subtitle: 'Personal Journaling Platform',
-    description:
-      'Clean backend with full CRUD operations and layered service-repository architecture.',
-    tech: ['Spring Boot', 'MongoDB'],
-    gradient: 'from-amber-500/20 to-rose-500/20',
-    accentColor: '#fbbf24',
-  },
-  {
-    title: 'Weather App',
-    subtitle: 'Real-time Weather Dashboard',
-    description:
-      'External API integration for real-time weather data with robust error handling.',
-    tech: ['Spring Boot', 'REST APIs'],
-    gradient: 'from-cyan-500/20 to-blue-500/20',
-    accentColor: '#22d3ee',
-  },
-  {
-    title: 'To-Do App',
-    subtitle: 'Task Management System',
-    description:
-      'Task management backend with MySQL and proper relational data modeling.',
-    tech: ['Spring Boot', 'MySQL'],
-    gradient: 'from-violet-500/20 to-pink-500/20',
-    accentColor: '#a78bfa',
-  },
-  {
-    title: 'Car Infotainment UI',
-    subtitle: 'UX/UI Design Concept',
-    description:
-      'Figma-designed car infotainment interface focused on UX clarity and accessibility.',
-    tech: ['Figma', 'UI/UX'],
-    gradient: 'from-rose-500/20 to-orange-500/20',
-    accentColor: '#fb7185',
   },
 ];
 
@@ -151,51 +115,8 @@ function FeaturedProjectCard({ project, index }) {
   );
 }
 
-function ProjectCard({ project, index }) {
-  return (
-    <AnimatedSection delay={index * 0.1} variant="scale">
-      <div className="glass-card rounded-2xl p-7 h-full flex flex-col relative overflow-hidden group transition-all duration-500 hover:shadow-2xl" style={{ boxShadow: `0 0 0 0 ${project.accentColor}00` }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-          style={{ background: `radial-gradient(circle at 50% 0%, ${project.accentColor}, transparent 70%)` }}
-        />
-        
-        <div className="relative z-10 flex flex-col h-full">
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-            style={{ background: `${project.accentColor}15` }}
-          >
-            <Layers size={20} style={{ color: project.accentColor }} />
-          </div>
-
-          <h3 className="text-xl font-bold text-white mb-1.5">{project.title}</h3>
-          <p className="text-xs font-semibold tracking-wide uppercase mb-4" style={{ color: project.accentColor }}>
-            {project.subtitle}
-          </p>
-          <p className="text-sm text-dark-400 leading-relaxed mb-6 flex-grow">
-            {project.description}
-          </p>
-
-          <div className="flex flex-wrap gap-2 pt-5 border-t border-white/5">
-            {project.tech.map((t) => (
-              <span
-                key={t}
-                className="px-2.5 py-1 rounded-md text-xs font-mono bg-dark-800/50 text-dark-300 border border-white/5"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </AnimatedSection>
-  );
-}
-
 export default function Projects() {
   const featured = projects.filter((p) => p.featured);
-  const others = projects.filter((p) => !p.featured);
 
   return (
     <section id="projects" className="relative py-12 sm:py-16 overflow-hidden">
@@ -220,19 +141,27 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Other Projects */}
-        <AnimatedSection>
-          <h3 className="text-xs font-semibold text-dark-500 uppercase tracking-wider mb-8">
-            Other Notable Projects
-          </h3>
+        {/* GitHub Redirect */}
+        <AnimatedSection delay={0.2}>
+          <div className="flex flex-col items-center justify-center text-center p-8 rounded-3xl bg-dark-900 border border-white/5 shadow-2xl relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-500/10 to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 relative z-10">
+              Want to see more of my work?
+            </h3>
+            <p className="text-dark-400 mb-6 max-w-md relative z-10">
+              Explore my GitHub for a deeper dive into my backend architectures, frontend experiments, and open-source contributions.
+            </p>
+            <a
+              href="https://github.com/jayeshsaini524?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 text-white font-semibold border border-white/10 shadow-sm hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300 relative z-10 group/btn"
+            >
+              View GitHub Profile
+              <ExternalLink size={16} className="text-accent-400 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+            </a>
+          </div>
         </AnimatedSection>
-        <div className="grid sm:grid-cols-2 gap-10 lg:gap-16">
-          {others.map((p, i) => (
-            <div key={p.title}>
-              <ProjectCard project={p} index={i} />
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
